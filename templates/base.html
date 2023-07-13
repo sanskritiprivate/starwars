@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars</title>
+
+    <style> body {
+                background-image: url('https://wallpapers.com/images/hd/star-wars-place-ztno3exzqff0m0ci.webp');
+                background-size: cover;
+                background-repeat: no-repeat;
+           }
+            .topnav {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+           }
+</style>
+</head>
+
+    </head>
+    <body>
+<h1 class="topnav">Search your favorite character!</h1>
+    <div class="topnav">
+
+  <input type="text" id="query" placeholder="Search..">
+        <input type="submit" id="submit" value="Submit">
+</div>
+    {% block content %}{% endblock %}
+
+    </body>
+  <script>
+            let submit=document.getElementById("submit");
+            let url = "http://127.0.0.1:5000/search-character/";
+            console.log(url)
+            submit.addEventListener("click", on_submit);
+
+            function on_submit(){
+                let query=document.getElementById("query").value;
+                console.log(" hello ");
+                console.log(query);
+
+                console.log(url + query);
+
+                window.location.href=url+query;
+            }
+        </script>
+
+</html>
+
+
+
+

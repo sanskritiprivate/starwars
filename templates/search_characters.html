@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div style="width: 50%; margin: auto">
+        <h1> Characters Found </h1>
+        <div style="padding: 10px; background-color: #ffffe6;margin: 20px">
+        {% for character in characters %}
+
+            <p style="font-size: 24px">Character: {{ character["character_name"] }}
+            </p>
+
+            {% set starships = character["attributes"]["starships"] %}
+            {% set species = character["attributes"]["species"] %}
+            {% set homeworld = character["attributes"]["homeworld"] %}
+
+
+            {% for starship in starships %}
+            <p style="font-size: 24px">Starship Name: {{ starship["name"] }}
+            </p>
+            <p style="font-size: 24px">Capacity: {{ starship["capacity"] }}
+            </p>
+            <p style="font-size: 24px">Class: {{ starship["class"] }}
+            </p>
+            {% endfor %}
+
+
+            {% if homeworld|length > 0 %}
+            <p>
+            <p style="font-size: 24px">Homeworld Name: {{ homeworld["name"] }}
+            </p>
+            <p style="font-size: 24px">Population: {{ homeworld["population"] }}
+            </p>
+            <p style="font-size: 24px">Climate: {{ homeworld["climate"] }}
+            </p>
+            </p>
+            {% endif %}
+
+
+            {% if species|length > 0 %}
+            <p>
+            <p style="font-size: 24px">Species Name: {{ species["name"] }}
+            </p>
+            <p style="font-size: 24px">Language: {{ species["language"] }}
+            </p>
+            <p style="font-size: 24px">Lifespan: {{ species["lifespan"] }}
+            </p>
+            </p>
+            {% endif %}
+
+
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
